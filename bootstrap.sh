@@ -17,15 +17,10 @@ fi
 if [[ $2 == "slave" ]]; then
 su - hduser -c "$HADOOP_INSTALL/sbin/hadoop-daemon.sh --config /usr/local/hadoop/etc/hadoop --script hdfs start datanode"
 su - hduser -c "$HADOOP_INSTALL/sbin/yarn-daemons.sh --config /usr/local/hadoop/etc/hadoop  start nodemanager"
-
-#su - hduser -c "$HADOOP_INSTALL/bin/hdfs dfs -mkdir /user"
-#su - hduser -c "$HADOOP_INSTALL/bin/hdfs dfs -mkdir /user/hive"
-#su - hduser -c "$HADOOP_INSTALL/bin/hdfs dfs -mkdir /user/hive/warehouse"
-#su - hduser -c "$HADOOP_INSTALL/bin/hdfs dfs -mkdir /tmp"
-#su - hduser -c "$HADOOP_INSTALL/bin/hdfs dfs -chmod g+w /tmp"
-#su - hduser -c "$HADOOP_INSTALL/bin/hdfs dfs -chmod g+w /user/hive/warehouse"
-#su - hduser -c "/usr/local/hive/bin/schematool -dbType derby -initSchema"
 fi
+
+
+su - hduser -c "echo 'fs.default.name=hdfs://node01:54310/' >> /usr/local/pig/conf/pig.properties"
 
 if [[ $1 == "-d" ]]; then
   while true; do sleep 1000; done
