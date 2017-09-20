@@ -2,9 +2,10 @@
 
 
 #Install Pig
-tar -xzvf /container/pig-0.16.0.tar.gz -C /usr/local/
+wget "$REPOSITORY_HOST"/repo/pig-0.16.0.tar.gz
+tar -xzvf /usr/local/pig-0.16.0.tar.gz
 mv /usr/local/pig-0.16.0 /usr/local/pig
-rm -rf /container/pig-0.16.0.tar.gz
+rm -rf /usr/local/pig-0.16.0.tar.gz
 chown -R hduser:hadoop /usr/local/pig
 
 #Derby Environemtn Setup

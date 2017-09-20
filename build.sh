@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t sumit/pig:latest .
+docker build --build-arg REPOSITORY_HOST=http://master:8181 -t sumit/pig:latest .

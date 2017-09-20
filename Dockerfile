@@ -1,7 +1,9 @@
-FROM sumit/hadoop:latest
+FROM master.cloud.com:5000/hadoop
 MAINTAINER Sumit Kumar Maji
 
 ADD . /container/
+WORKDIR /usr/local/
+ARG REPOSITORY_HOST
 
 #Derby Environemtn Setup
 ENV PIG_HOME /usr/local/pig
